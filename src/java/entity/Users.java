@@ -12,14 +12,11 @@ import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -30,75 +27,38 @@ import javax.xml.bind.annotation.XmlTransient;
  * @author mazafaka
  */
 @Entity
+@Table(name = "users")
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Users.findAll", query = "SELECT u FROM Users u"),
-    @NamedQuery(name = "Users.findById", query = "SELECT u FROM Users u WHERE u.id = :id"),
     @NamedQuery(name = "Users.findByLogin", query = "SELECT u FROM Users u WHERE u.login = :login"),
-    @NamedQuery(name = "Users.findByPassword", query = "SELECT u FROM Users u WHERE u.password = :password"),
-    @NamedQuery(name = "Users.findByFirstname", query = "SELECT u FROM Users u WHERE u.firstname = :firstname"),
-    @NamedQuery(name = "Users.findByLastname", query = "SELECT u FROM Users u WHERE u.lastname = :lastname"),
-    @NamedQuery(name = "Users.findByEMail", query = "SELECT u FROM Users u WHERE u.eMail = :eMail")})
+    @NamedQuery(name = "Users.findByPassword", query = "SELECT u FROM Users u WHERE u.password = :password")})
 public class Users implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Basic(optional = false)
-    private Integer id;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 20)
+    @Column(name = "login")
     private String login;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 20)
+    @Column(name = "password")
     private String password;
-    @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 20)
-    private String firstname;
-    @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 20)
-    private String lastname;
-    // @Pattern(regexp="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?", message="Invalid email")//if the field contains email address consider using this annotation to enforce field validation
-    @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 20)
-    @Column(name = "e_mail")
-    private String eMail;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "userId")
-    private List<Projects> projectsList;
-    @JoinColumn(name = "role_id", referencedColumnName = "id")
-    @ManyToOne(optional = false)
-    private Roles roleId;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "userId")
-    private List<Articles> articlesList;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "usersId")
-    private List<Messages> messagesList;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "login")
+    private List<Contacts> contactsList;
 
     public Users() {
     }
 
-    public Users(Integer id) {
-        this.id = id;
+    public Users(String login) {
+        this.login = login;
     }
 
-    public Users(Integer id, String login, String password, String firstname, String lastname, String eMail) {
-        this.id = id;
+    public Users(String login, String password) {
         this.login = login;
         this.password = password;
-        this.firstname = firstname;
-        this.lastname = lastname;
-        this.eMail = eMail;
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
     }
 
     public String getLogin() {
@@ -117,69 +77,19 @@ public class Users implements Serializable {
         this.password = password;
     }
 
-    public String getFirstname() {
-        return firstname;
-    }
-
-    public void setFirstname(String firstname) {
-        this.firstname = firstname;
-    }
-
-    public String getLastname() {
-        return lastname;
-    }
-
-    public void setLastname(String lastname) {
-        this.lastname = lastname;
-    }
-
-    public String getEMail() {
-        return eMail;
-    }
-
-    public void setEMail(String eMail) {
-        this.eMail = eMail;
-    }
-
     @XmlTransient
-    public List<Projects> getProjectsList() {
-        return projectsList;
+    public List<Contacts> getContactsList() {
+        return contactsList;
     }
 
-    public void setProjectsList(List<Projects> projectsList) {
-        this.projectsList = projectsList;
-    }
-
-    public Roles getRoleId() {
-        return roleId;
-    }
-
-    public void setRoleId(Roles roleId) {
-        this.roleId = roleId;
-    }
-
-    @XmlTransient
-    public List<Articles> getArticlesList() {
-        return articlesList;
-    }
-
-    public void setArticlesList(List<Articles> articlesList) {
-        this.articlesList = articlesList;
-    }
-
-    @XmlTransient
-    public List<Messages> getMessagesList() {
-        return messagesList;
-    }
-
-    public void setMessagesList(List<Messages> messagesList) {
-        this.messagesList = messagesList;
+    public void setContactsList(List<Contacts> contactsList) {
+        this.contactsList = contactsList;
     }
 
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (id != null ? id.hashCode() : 0);
+        hash += (login != null ? login.hashCode() : 0);
         return hash;
     }
 
@@ -190,7 +100,7 @@ public class Users implements Serializable {
             return false;
         }
         Users other = (Users) object;
-        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
+        if ((this.login == null && other.login != null) || (this.login != null && !this.login.equals(other.login))) {
             return false;
         }
         return true;
@@ -198,7 +108,7 @@ public class Users implements Serializable {
 
     @Override
     public String toString() {
-        return "entity.Users[ id=" + id + " ]";
+        return "entity.Users[ login=" + login + " ]";
     }
     
 }

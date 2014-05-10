@@ -17,14 +17,15 @@
                 <article>
                     <h1>Регистрация</h1>
                     <div class="text-article">
-                        <form method="POST" action="registration">
+                        <c:if test="${notif ne null}">
+                            <div class="notif">
+                                <span>${notif}</span> 
+                            </div>
+                        </c:if>
+                         <form method="POST" action="registration">
                         <p>
                             <label for="login">Логин</label>
                             <input type="text" name="login" id="login"/>
-                        </p>
-                        <p>
-                        <label for="email">E-Mail</label>
-                        <input type="email" name="email" id="email"/>
                         </p>
                         <p>
                         <label for="password">Пароль</label>

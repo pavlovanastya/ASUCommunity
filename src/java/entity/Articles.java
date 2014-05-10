@@ -7,11 +7,11 @@
 package entity;
 
 import java.io.Serializable;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -24,6 +24,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
@@ -36,6 +37,7 @@ import javax.xml.bind.annotation.XmlTransient;
  * @author mazafaka
  */
 @Entity
+@Table(name = "articles")
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Articles.findAll", query = "SELECT a FROM Articles a"),
@@ -48,32 +50,37 @@ public class Articles implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
+    @Column(name = "id")
     private Integer id;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 45)
+    @Column(name = "title")
     private String title;
     @Basic(optional = false)
     @NotNull
     @Lob
     @Size(min = 1, max = 65535)
+    @Column(name = "text")
     private String text;
     @Basic(optional = false)
     @NotNull
+    @Column(name = "date")
     @Temporal(TemporalType.TIMESTAMP)
     private Date date;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 45)
+    @Column(name = "section")
     private String section;
     @JoinTable(name = "articles_categories", joinColumns = {
         @JoinColumn(name = "articles_id", referencedColumnName = "id")}, inverseJoinColumns = {
         @JoinColumn(name = "categories_id", referencedColumnName = "id")})
     @ManyToMany
     private List<Categories> categoriesList;
-    @JoinColumn(name = "user_id", referencedColumnName = "id")
+    @JoinColumn(name = "user_login", referencedColumnName = "login")
     @ManyToOne(optional = false)
-    private Users userId;
+    private Users userLogin;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "articlesId")
     private List<Messages> messagesList;
 
@@ -116,12 +123,8 @@ public class Articles implements Serializable {
         this.text = text;
     }
 
-    public String getDate() {
-         try{
-         return new SimpleDateFormat("dd.MM.yyyy").format(this.date);
-       }catch (NullPointerException e){
-         return "Дата не определена";
-       }
+    public Date getDate() {
+        return date;
     }
 
     public void setDate(Date date) {
@@ -145,12 +148,12 @@ public class Articles implements Serializable {
         this.categoriesList = categoriesList;
     }
 
-    public Users getUserId() {
-        return userId;
+    public Users getUserLogin() {
+        return userLogin;
     }
 
-    public void setUserId(Users userId) {
-        this.userId = userId;
+    public void setUserLogin(Users userLogin) {
+        this.userLogin = userLogin;
     }
 
     @XmlTransient

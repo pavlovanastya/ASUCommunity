@@ -6,7 +6,7 @@
 
 package session;
 
-import entity.Roles;
+import entity.Contacts;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -16,7 +16,7 @@ import javax.persistence.PersistenceContext;
  * @author mazafaka
  */
 @Stateless
-public class RolesFacade extends AbstractFacade<Roles> {
+public class ContactsFacade extends AbstractFacade<Contacts> {
     @PersistenceContext(unitName = "ASUCommunityPU")
     private EntityManager em;
 
@@ -25,8 +25,8 @@ public class RolesFacade extends AbstractFacade<Roles> {
         return em;
     }
 
-    public RolesFacade() {
-        super(Roles.class);
+    public ContactsFacade() {
+        super(Contacts.class);
     }
     
 }

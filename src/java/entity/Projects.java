@@ -8,6 +8,7 @@ package entity;
 
 import java.io.Serializable;
 import javax.persistence.Basic;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -16,6 +17,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -25,6 +27,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author mazafaka
  */
 @Entity
+@Table(name = "projects")
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Projects.findAll", query = "SELECT p FROM Projects p"),
@@ -37,21 +40,25 @@ public class Projects implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
+    @Column(name = "id")
     private Integer id;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 20)
+    @Column(name = "title")
     private String title;
     @Basic(optional = false)
     @NotNull
+    @Column(name = "mark")
     private int mark;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 2000)
+    @Column(name = "description")
     private String description;
-    @JoinColumn(name = "user_id", referencedColumnName = "id")
+    @JoinColumn(name = "user_login", referencedColumnName = "login")
     @ManyToOne(optional = false)
-    private Users userId;
+    private Users userLogin;
 
     public Projects() {
     }
@@ -99,12 +106,12 @@ public class Projects implements Serializable {
         this.description = description;
     }
 
-    public Users getUserId() {
-        return userId;
+    public Users getUserLogin() {
+        return userLogin;
     }
 
-    public void setUserId(Users userId) {
-        this.userId = userId;
+    public void setUserLogin(Users userLogin) {
+        this.userLogin = userLogin;
     }
 
     @Override

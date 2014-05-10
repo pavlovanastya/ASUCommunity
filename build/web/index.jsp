@@ -19,7 +19,7 @@
                 </ul>
             </aside>
             <section>
-                 <c:forEach var="article" items="${articles}">
+                 <c:forEach var="article" items="${article}">
                         <article>
                         <h1>${article.title}</h1>
                         <div class="text-article">

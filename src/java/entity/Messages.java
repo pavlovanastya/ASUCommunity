@@ -9,12 +9,14 @@ package entity;
 import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Basic;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
@@ -26,6 +28,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author mazafaka
  */
 @Entity
+@Table(name = "messages")
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Messages.findAll", query = "SELECT m FROM Messages m"),
@@ -37,21 +40,24 @@ public class Messages implements Serializable {
     @Id
     @Basic(optional = false)
     @NotNull
+    @Column(name = "id")
     private Integer id;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 255)
+    @Column(name = "text")
     private String text;
     @Basic(optional = false)
     @NotNull
+    @Column(name = "date")
     @Temporal(TemporalType.TIMESTAMP)
     private Date date;
     @JoinColumn(name = "articles_id", referencedColumnName = "id")
     @ManyToOne(optional = false)
     private Articles articlesId;
-    @JoinColumn(name = "users_id", referencedColumnName = "id")
+    @JoinColumn(name = "user_login", referencedColumnName = "login")
     @ManyToOne(optional = false)
-    private Users usersId;
+    private Users userLogin;
 
     public Messages() {
     }
@@ -98,12 +104,12 @@ public class Messages implements Serializable {
         this.articlesId = articlesId;
     }
 
-    public Users getUsersId() {
-        return usersId;
+    public Users getUserLogin() {
+        return userLogin;
     }
 
-    public void setUsersId(Users usersId) {
-        this.usersId = usersId;
+    public void setUserLogin(Users userLogin) {
+        this.userLogin = userLogin;
     }
 
     @Override
