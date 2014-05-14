@@ -46,8 +46,8 @@ public class Users implements Serializable {
     @Size(min = 1, max = 20)
     @Column(name = "password")
     private String password;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "login")
-    private List<Contacts> contactsList;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "usersLogin")
+    private List<Groupuser> groupuserList;
 
     public Users() {
     }
@@ -78,12 +78,12 @@ public class Users implements Serializable {
     }
 
     @XmlTransient
-    public List<Contacts> getContactsList() {
-        return contactsList;
+    public List<Groupuser> getGroupuserList() {
+        return groupuserList;
     }
 
-    public void setContactsList(List<Contacts> contactsList) {
-        this.contactsList = contactsList;
+    public void setGroupuserList(List<Groupuser> groupuserList) {
+        this.groupuserList = groupuserList;
     }
 
     @Override

@@ -7,6 +7,7 @@
 package session;
 
 import entity.Contacts;
+import entity.Groupuser;
 import entity.Users;
 import java.util.List;
 import java.util.Map;
@@ -69,5 +70,10 @@ public class UsersManager {
                 }
             }
         }
+        
+                Groupuser groupuser=new Groupuser();
+                groupuser.setName("private");
+                groupuser.setUsersLogin(user);
+                em.persist(groupuser);
     }
 }

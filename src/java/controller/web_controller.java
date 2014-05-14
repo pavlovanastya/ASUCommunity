@@ -83,7 +83,6 @@ public class web_controller extends HttpServlet {
         }
         
         request.getRequestDispatcher("/WEB-INF/views"+userPath+".jsp").forward(request, response);
-        //processRequest(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

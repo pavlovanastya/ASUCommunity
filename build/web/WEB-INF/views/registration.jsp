@@ -24,8 +24,20 @@
                         </c:if>
                          <form method="POST" action="registration">
                         <p>
-                            <label for="login">Логин</label>
-                            <input type="text" name="login" id="login"/>
+                        <label for="firstname">Имя</label>
+                        <input type="text" name="firstname" id="firstname"/>
+                        </p>
+                        <p>
+                        <label for="lastname">Фамилия</label>
+                        <input type="text" name="lastname" id="lastname"/>
+                        </p>
+                        <p>
+                        <label for="login">Логин</label>
+                        <input type="text" name="login" id="login"/>
+                        </p>
+                        <p>
+                        <label for="email">E-Mail</label>
+                        <input type="email" name="email" id="email"/>
                         </p>
                         <p>
                         <label for="password">Пароль</label>

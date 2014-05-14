@@ -7,12 +7,16 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
+        <h1>Добро пожаловать в закрытый раздел, ${name}!</h1>
         <div id="main">
             <aside class="leftAside">
+                <h2>Форум</h2>
                 <ul>
-                    <li><a href="registration">Регистрация</a></li>
-                    <li><a href="private">Вход</a></li>
-                    
+                    <li><a href="#">Программирование</a></li>
+                    <li><a href="#">Администрирование</a></li>
+                    <li><a href="#">Железо</a></li>
+                    <li><a href="#">Сетевые технологии</a></li>
+                    <li><a href="logout">Выход</a></li>
                 </ul>
             </aside>
             <section>
@@ -32,3 +36,4 @@
             </section>
         </div>
 </html>        
+

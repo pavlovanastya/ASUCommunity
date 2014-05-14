@@ -9,12 +9,9 @@
 <html>
         <div id="main">
             <aside class="leftAside">
-                <h2>Форум</h2>
                 <ul>
-                    <li><a href="#">Программирование</a></li>
-                    <li><a href="#">Администрирование</a></li>
-                    <li><a href="#">Железо</a></li>
-                    <li><a href="#">Сетевые технологии</a></li>
+                    <li><a href="registration">Регистрация</a></li>
+                    <li><a href="private">Вход</a></li>
                     
                 </ul>
             </aside>
