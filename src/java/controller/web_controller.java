@@ -29,10 +29,13 @@ public class web_controller extends HttpServlet {
     ArticlesFacade articlesFacade;
     @EJB
     UsersManager userManager;
+    @EJB
+    ArticlesManager articlesManager;
+
 
     @Override
     public void init() throws ServletException {
-        getServletContext().setAttribute("article", articlesFacade.findAll());
+        getServletContext().setAttribute("article",articlesManager.findBySection());
     }
         
    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
@@ -55,7 +58,7 @@ public class web_controller extends HttpServlet {
                 {
                     e.printStackTrace();
                 }
-            }
+            }       
         }else
         if ("/registration".equals(userPath)){
            String login=null,pass=null,pass2=null;
@@ -76,14 +79,17 @@ public class web_controller extends HttpServlet {
                 }
             }
             Integer codeOperation=userManager.addUser(login, pass2, pass2, contacts);
+            
             if (codeOperation!=0)
             {request.setAttribute("notif", "Код завершения операции: "+codeOperation);}
             else
             {request.setAttribute("notif", "Пользователь "+login+" успешно создан!");}
         }
+       
         
         request.getRequestDispatcher("/WEB-INF/views"+userPath+".jsp").forward(request, response);
     }
+   
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**

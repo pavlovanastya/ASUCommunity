@@ -11,13 +11,14 @@
     
         <div id="main">
             <aside class="leftAside">
-                <h2>Темы статей</h2>
+                <h2>Персональний кабінет</h2>
                 <ul>
-                    <li><a href="#">Тема 1</a></li>
-                    <li><a href="#">Тема 2</a></li>
-                    <li><a href="#">Тема 3</a></li>
-                    <li><a href="#">Тема 3</a></li>
-                    
+                    <li><a href="project">Кореляція проектів</a></li>
+                    <li><a href="#">Навчальна программа</a></li>
+                    <li><a href="#">Траєкторія навчання</a></li>
+                    <li><a href="#">Власний календар</a></li>
+                    <li><a href="#">Олімпіадна робота</a></li>
+                    <li><a href="logout">Вихід</a></li>
                 </ul>
             </aside>
             <section>

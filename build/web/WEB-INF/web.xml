@@ -15,20 +15,6 @@
             <include-coda>/WEB-INF/jspf/footer.jspf</include-coda>
         </jsp-property-group>
     </jsp-config>
-    <security-constraint>
-        <display-name>private_zone</display-name>
-        <web-resource-collection>
-            <web-resource-name>private articles</web-resource-name>
-            <description/>
-            <url-pattern>/private/*</url-pattern>
-            <http-method>GET</http-method>
-            <http-method>POST</http-method>
-        </web-resource-collection>
-        <auth-constraint>
-            <description/>
-            <role-name>private</role-name>
-        </auth-constraint>
-    </security-constraint>
     <login-config>
         <auth-method>FORM</auth-method>
         <realm-name>JDBCRealmASUCommunity</realm-name>

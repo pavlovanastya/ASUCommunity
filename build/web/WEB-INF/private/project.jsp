@@ -1,9 +1,8 @@
 <%-- 
-    Document   : page
-    Created on : May 4, 2014, 6:30:00 PM
+    Document   : project
+    Created on : May 17, 2014, 5:40:37 PM
     Author     : mazafaka
 --%>
-
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -23,17 +22,14 @@
             </aside>
             <section>
                 <article>
-                    <h1>${article.title}</h1>
+                    <h1>${project.get(0)[1]}</h1>
                     <div class="text-article">
-                        ${article.text}
+                        <p>1.${project.get(0)[2]} балів</p>
+                        <p>2.${project.get(0)[3]}</p>
                     </div>
-                    <div class="fotter-article">
-                        <span class="date-article">Дата статьи: ${article.date}</span>
-                    </div>
+                    
                 </article>
             </section>
         </div>
-       
-    </body>
+   
 </html>
-

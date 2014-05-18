@@ -136,7 +136,7 @@ public class Projects implements Serializable {
 
     @Override
     public String toString() {
-        return "entity.Projects[ id=" + id + " ]";
+        return title+" "+mark+" "+ description;
     }
     
 }

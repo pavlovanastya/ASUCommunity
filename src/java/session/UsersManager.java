@@ -71,9 +71,10 @@ public class UsersManager {
             }
         }
         
-                Groupuser groupuser=new Groupuser();
-                groupuser.setName("private");
-                groupuser.setUsersLogin(user);
-                em.persist(groupuser);
+        Groupuser groupuser=new Groupuser();
+        groupuser.setName("private");
+        groupuser.setUsersLogin(user);
+        em.persist(groupuser);
     }
+    
 }

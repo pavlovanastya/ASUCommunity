@@ -7,16 +7,16 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-        <h1>Добро пожаловать в закрытый раздел, ${name}!</h1>
         <div id="main">
             <aside class="leftAside">
-                <h2>Форум</h2>
+                <h2>Персональний кабінет</h2>
                 <ul>
-                    <li><a href="#">Программирование</a></li>
-                    <li><a href="#">Администрирование</a></li>
-                    <li><a href="#">Железо</a></li>
-                    <li><a href="#">Сетевые технологии</a></li>
-                    <li><a href="logout">Выход</a></li>
+                    <li><a href="project">Кореляція проектів</a></li>
+                    <li><a href="#">Навчальна программа</a></li>
+                    <li><a href="#">Траєкторія навчання</a></li>
+                    <li><a href="#">Власний календар</a></li>
+                    <li><a href="#">Олімпіадна робота</a></li>
+                    <li><a href="logout">Вихід</a></li>
                 </ul>
             </aside>
             <section>
