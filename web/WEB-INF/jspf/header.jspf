@@ -9,7 +9,7 @@
         <title>ASUCommunity</title>
     </head>
     <body>
-        <header>
-            
-        </header>
+        <div id="logo">
+	<h1><a href="#">ASUCommunity</a></h1>
+        </div>
      

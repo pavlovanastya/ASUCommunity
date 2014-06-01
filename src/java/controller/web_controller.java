@@ -10,6 +10,7 @@ import entity.*;
 import java.io.IOException;
 import java.util.Enumeration;
 import java.util.HashMap;
+import java.util.List;
 import javax.ejb.EJB;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -52,7 +53,9 @@ public class web_controller extends HttpServlet {
                 try
                 {
                     Articles article=articlesFacade.find(Integer.parseInt(id));
+                    List<Object[]> result=articlesManager.findMessages(Integer.parseInt(id));
                     request.setAttribute("article", article);
+                    request.setAttribute("messages", result);
                 }
                 catch(Exception e)
                 {

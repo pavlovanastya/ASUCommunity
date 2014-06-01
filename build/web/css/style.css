@@ -1,159 +1,237 @@
-/*
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
-*/
-/* 
-    Created on : May 4, 2014, 6:31:08 PM
-    Author     : mazafaka
-*/
-body{
-    width: 96%;
-    margin-left: 2%;
+* {
+	margin: 0;
+	padding: 0;
 }
-header{
-    height: 150px;
-    border-radius: 5px;
-    background: #ccccff
+
+body {
+	margin-top: 20px;
+	background: #404040 url(img01.gif) repeat-x;
+	font: normal small "Trebuchet MS", Arial, Helvetica, sans-serif;
+	color: #CCCCCC;
 }
-#top-image{
-    height: 130px;
-    width: 130px;
-    top: 20px;
-    background: #6699ff;
-    position: absolute;
-    left: 5%;
-    border-radius: 5px;
+
+h1, h2, h3 {
+	margin-bottom: 1em;
+	text-transform: uppercase;
+	color: #FFFFFF;
 }
-#user-panel{
-    position: absolute;
-    top: 20px;
-    right: 5%;
-    padding: 10px;
-    background: #9999ff;
-    border-radius: 5px;
+
+h1 { font-size: 2.8em; }
+h2 { font-size: 1.8em; }
+h3 { font-size: 1.2em; }
+
+p, blockquote, ul, ol {
+	margin-bottom: 1.5em;
+	text-align: justify;
+	line-height: 1.8em;
 }
-#user-panel img{
-    width: 25px;
-    height: 25px;
+
+blockquote, ul, ol {
+	margin-left: 3em;
 }
-#main{
-    margin-top: 3px;
+
+blockquote {
+	margin-right: 3em;
 }
-#main .leftAside{
-    float: left;
-    position: relative;
-    width: 250px;
-    background: #ccccff;
-    border-radius: 5px;
-    height: 100%;
+
+a {
+	color: #CCCCCC;
 }
-#main .leftAside p{
-    width: 96%;
-    margin-left: 2%;
-    text-align: justify;
+
+a:hover {
+	text-decoration: none;
+	color: #FFFFFF;
 }
-#main .leftAside h2{
-    margin: 0px;
-    margin-left: 2%;
-    margin-top: 2%;
-    width: 96%;
-    padding: 5px 0px 5px 0px;
-    border-radius: 5px 5px 0px 0px;
-    background: #76a5fc;
-    text-align: center;
+
+img { border: none; }
+
+img.left {
+	float: left;
+	margin: 0 15px 15px 0;
 }
-#main .leftAside ul{
-    margin: 0px;
-    margin-left: 2%;
-    margin-bottom: 2%;
-    padding: 0px;
-    width: 96%;
-    list-style: none;
+
+img.right {
+	float: right;
+	margin: 0 15px 0 15px;
 }
-#main .leftAside ul li{
-    margin: 0px;
-    cursor: pointer;
-    background: #76befc;
-    padding: 7px 5px;
-    border: 1px solid #6666ff;
-    border-bottom: none;
+
+hr { display: none; }
+
+.hr {
 }
-#main .leftAside ul li:hover{
-    -moz-transition: all 1s linear 0s;
-    -webkit-transition: all 1s linear 0s;
-    -o-transition: all 1s linear 0s;
-    transition: all 1s linear 0s;
-    background: #cce6fc;
-    padding-left: 10%;
+
+/* Boxed */
+
+.boxed {
 }
-#main .leftAside ul li:first-child{
-    
+
+.boxed .title {
+	margin: 0;
+	padding: 5px 15px;
+	background: url(img08.gif) no-repeat left center;
+	text-transform: uppercase;
+	font-size: small;
 }
-#main .leftAside ul li:last-child{
-    border-bottom: 1px solid #6666ff;
-    border-radius: 0px 0px 5px 5px;
+
+.boxed .content {
+	padding: 15px;
+	background: url(img09.gif) repeat-x;
 }
-#main .leftAside a{
-    text-decoration: none;
-    padding: 3px 2px;
+
+.boxed ol, .boxed ul {
+	margin-left: 0;
+	list-style-position: inside;
 }
-#main article{
-    margin-left: 260px;
-    margin-bottom: 5px;
-    background: #80abdb;
-    border: 1px solid #40658d;
-    border-radius: 5px;
+
+/* Logo */
+
+#logo {
+	width: 760px;
+	height: 200px;
+	margin: 0 auto;
+	background: #000000 url(img02.jpg) no-repeat;
 }
-#main article h1{
-    font-size: 2em;
-    padding: 3px 5px;
-    margin: 0px;
-    border-radius: 5px 5px 0px 0px;
+
+#logo h1 {
+	float: left;
+	width: 600px;
+	margin: 0;
+	padding: 164px 0 0 0;
+	text-align: right;
+	letter-spacing: 5px;
+	font-size: 18px;
 }
-#main article .text-article{
-    padding: 5px;
-    font-size: 15px;
-    background: #cce6fc;
+
+#logo h2 {
+	float: right;
+	margin: 0;
+	padding: 170px 20px 0 0;
+	font-size: 11px;
 }
-#main article .text-article label{
-   margin-right: 10px;
+
+#logo a {
+	text-decoration: none;
+	color: #FFFFFF;
 }
-#main article .fotter-article{
-    height: 23px;
-    background: #8babce;
-    border-radius: 0px 0px 5px 5px;
-    padding: 3px;
+
+/* Page */
+
+#page {
+	width: 760px;
+	margin: 0 auto;
+	background: #000000;
 }
-#main article .date-article, .read{
-    float: right;
-    margin-left: 10px;
+
+/* Content */
+
+#content {
+	float: left;
+	width: 480px;
+	padding: 20px;
+	background: url(img03.jpg) no-repeat;
 }
-footer{
-    height: 80px;
-    background: #6184aa;
-    border-radius: 0px 0px 5px 5px;
-    vertical-align: central;
+
+#welcome {
+        
+	padding-bottom: 20px;
+        
 }
-footer div{
-    padding-top: 35px;
-    font-weight: bold;
-    padding-left: 10px;
+
+#olist {
+	clear: left;
+	float: left;
+	width: 230px;
 }
-footer span {
-    margin-right: 15px;
+
+#ulist {
+	float: left;
+	width: 230px;
+	padding-left: 20px;
 }
-.notif{
-    width: 94%;
-    margin-left: 2%;
-    border: 1px solid #660000;
-    background: #ff9999;
-    border-radius: 5px;
+
+/* Sidebar */
+
+#sidebar {
+	float: right;
+	width: 200px;
+	padding: 20px;
+	background: url(img04.jpg) no-repeat;
 }
-.notif span{
-    font-size: 16px;
-    font-weight: bold;
-    letter-spacing: 1px;
-    margin: 5px;
-    color: #660033;
+
+#sidebar blockquote {
+	margin-left: 0;
+	margin-right: 0;
 }
+
+/* Menu */
+
+#menu {
+	margin-bottom: 19px;
+        
+}
+
+#menu h2 {
+	display: none;
+}
+
+#menu ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	line-height: normal;
+}
+
+#menu li {
+	display: block;
+	padding-top: 1px;
+	background: url(img07.gif) repeat-x;
+}
+
+#menu li.first {
+	background: none;
+}
+
+#menu a {
+	display: block;
+	width: 165px;
+	padding: 7px 10px 7px 25px;
+	text-transform: uppercase;
+	background: url(img08.gif) no-repeat 10px 50%;
+	text-decoration: none;
+	letter-spacing: 1px;
+	font-size: x-small;
+	font-weight: bold;
+}
+
+#menu a:hover {
+	background-color: #0A0A0A;
+}
+
+/* Footer */
+
+#footer {
+	width: 760px;
+	margin: 0 auto;
+	padding: 20px 0;
+	background: url(img05.gif) repeat-x;
+}
+
+#footer p {
+	margin: 0;
+	text-align: center;
+	font-size: x-small;
+	color: #000000;
+}
+
+#footer a {
+	color: #000000;
+}
+
+
+
+
+
+
+
+
+

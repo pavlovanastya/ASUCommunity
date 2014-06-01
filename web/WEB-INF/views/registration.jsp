@@ -1,26 +1,15 @@
-<%-- 
-    Document   : registration
-    Created on : May 4, 2014, 6:30:31 PM
-    Author     : mazafaka
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-
-        <div id="main">
-            <aside class="leftAside">
-                <h2>Что нужно для регистрации</h2>
-                <p>Что бы регистрация прошла успешно, заполните все поля и нажмите на
-                кнопку "Зарегистрироваться"
-                </p>
-            </aside>
-            <section>
-                <article>
-                    <h1>Регистрация</h1>
-                    <div class="text-article">
+<!DOCTYPE html>
+<html>
+    <div id="page">
+	<div id="content">
+            <div id="welcome">
+                <p>
+                    <section>
+                    <article>
+                    <h2>Реєстрація</h2>
                         <c:if test="${notif ne null}">
-                            <div class="notif">
                                 <span>${notif}</span> 
-                            </div>
                         </c:if>
                          <form method="POST" action="registration">
                         <p>
@@ -50,7 +39,26 @@
                             <button type="submit">Зарегистрироваться</button>
                         </p>
                         </form>
-                    </div>
-                </article>
-            </section>
-        </div>
+                    </article>
+                    </section>
+                </p>
+            </div>		
+	</div>
+	<div id="sidebar">
+            <div id="menu">
+                <h2>Меню</h2>
+		<ul>
+                    <li class="first"><a href="/ASUCommunity/" accesskey="1" title="">Головна</a></li>
+                    <li><a href="#" accesskey="2" title="">Форум</a></li>
+                    <li><a href="/ASUCommunity/" accesskey="3" title="">Новини</a></li>
+                    <li><a href="#" accesskey="4" title="">Вакансії</a></li>
+                    <li><a href="registration" accesskey="5" title="">Реєстрація</a></li>
+                    <li><a href="private" accesskey="6" title="">Вхід</a></li>
+		</ul>
+            </div>            
+	</div>
+	<div style="clear: both; height: 1px;"></div>
+    </div>        
+</html>        
+
+

@@ -7,6 +7,7 @@
 package session;
 
 import entity.Articles;
+import entity.Messages;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.ejb.TransactionManagement;
@@ -29,6 +30,14 @@ public class ArticlesManager {
     {
         Query query=em.createNamedQuery("Articles.findBySection",Articles.class).setParameter("section", "Новости");
         List<Articles> result=query.getResultList();
+        return result;
+    }
+    
+    public List<Object[]> findMessages(Integer id)
+    {
+        Query query=em.createNativeQuery("SELECT * FROM asucommunity.messages where articles_id= ?" );
+        query.setParameter(1, id);
+        List<Object[]> result=query.getResultList();
         return result;
     }
 }
