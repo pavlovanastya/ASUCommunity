@@ -7,63 +7,30 @@
 package controller;
 
 import java.io.IOException;
-import java.util.List;
-import javax.ejb.EJB;
+import java.io.PrintWriter;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.HttpConstraint;
-import javax.servlet.annotation.ServletSecurity;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-import session.ProjectsManager;
 
 /**
  *
  * @author mazafaka
  */
-@WebServlet(name = "private_controller", urlPatterns = {"/private", "/logout","/project"})
-@ServletSecurity( @HttpConstraint(rolesAllowed = {"private"}) )
-public class private_controller extends HttpServlet {
-    
-    @EJB
-    ProjectsManager projectsManager;
-    
+@WebServlet(name = "add", urlPatterns = {"/addnews"})
+public class add extends HttpServlet {
+
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-         response.setContentType("text/html;charset=UTF-8");
-         String login=request.getUserPrincipal().getName();
-        if ("/private".equals(request.getServletPath())){
+        response.setContentType("text/html;charset=UTF-8");
+        String userPath=request.getServletPath();
+        if("/addnews".equals(userPath))
+        {
             
-            request.setAttribute("name", login); 
-            request.getRequestDispatcher("WEB-INF/private/private_article.jsp").forward(request, response);
-        }else
-        if ("/logout".equals(request.getServletPath())){
-            HttpSession session = request.getSession(false);
-            if (session!= null){
-                session.invalidate();
-            }
-            response.sendRedirect("/ASUCommunity/");
         }
-        else
-        if ("/project".equals(request.getServletPath())){
-                try
-                {
-                    List<Object[]> result= projectsManager.findByLogin(login);
-                    request.setAttribute("project", result);
-                    request.getRequestDispatcher("WEB-INF/private/project.jsp").forward(request, response);
-                }
-                catch(Exception e)
-                {
-                    e.printStackTrace();
-                }
-        }
-        
+         request.getRequestDispatcher("/WEB-INF/views"+userPath+".jsp").forward(request, response);
     }
-        
-    
-    
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**

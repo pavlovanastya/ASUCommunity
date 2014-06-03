@@ -4,10 +4,23 @@
     <div id="page">
 	<div id="content">
             <div id="welcome">
+                <form method="POST" action="nsearch">
                 <p>
-                    <h2>Error</h2>
-                    <p class="error">Ошибка входа</p>
-                    <p>Вернуться <strong><a href="private">к авторизации</a></strong>.</p>
+                <label for="search">Пошук</label>
+                <input type="text" name="search" id="search"/>
+                <button type="submit">Знайти</button>
+                </p>
+                </form>
+                <p>
+                    <c:forEach var="articles" items="${article}">
+                    <article>
+                        <h2>${articles.title}</h2>
+                        ${fn:substring(articles.text,0,300)} ...
+                        <a href="article?id=${articles.id}">Читать...</a>
+                        <p>Дата статьи: ${articles.date} 
+                        Категория:${articles.categoriesList.get(0).name}</p>
+                    </article>
+                    </c:forEach>
                 </p>
             </div>		
 	</div>
@@ -21,7 +34,7 @@
                     <li><a href="registration" accesskey="5" title="">Реєстрація</a></li>
                     <li><a href="private" accesskey="6" title="">Вхід</a></li>
 		</ul>
-            </div>            
+            </div>
 	</div>
 	<div style="clear: both; height: 1px;"></div>
     </div>        

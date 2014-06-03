@@ -16,9 +16,8 @@
                 <h2>Меню</h2>
 		<ul>
                     <li class="first"><a href="/ASUCommunity/" accesskey="1" title="">Головна</a></li>
-                    <li><a href="#" accesskey="2" title="">Форум</a></li>
-                    <li><a href="/ASUCommunity/" accesskey="3" title="">Новини</a></li>
-                    <li><a href="#" accesskey="4" title="">Вакансії</a></li>
+                    <li><a href="/ASUCommunity/" accesskey="3" title="">Новини</a></li>                    
+                    <li><a href="fnsearch" accesskey="3" title="">Розширений пошук</a></li>
                     <li><a href="registration" accesskey="5" title="">Реєстрація</a></li>
                     <li><a href="private" accesskey="6" title="">Вхід</a></li>
 		</ul>

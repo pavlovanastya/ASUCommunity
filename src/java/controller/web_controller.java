@@ -23,7 +23,7 @@ import session.*;
  *
  * @author mazafaka
  */
-@WebServlet(name = "web_controller", loadOnStartup=1, urlPatterns = {"/article", "/registration"})
+@WebServlet(name = "web_controller", loadOnStartup=1, urlPatterns = {"/article", "/registration","/forum"})
 public class web_controller extends HttpServlet {
 
     @EJB
@@ -33,10 +33,9 @@ public class web_controller extends HttpServlet {
     @EJB
     ArticlesManager articlesManager;
 
-
     @Override
     public void init() throws ServletException {
-        getServletContext().setAttribute("article",articlesManager.findBySection());
+        getServletContext().setAttribute("article",articlesManager.findNews());
     }
         
    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
@@ -88,7 +87,10 @@ public class web_controller extends HttpServlet {
             else
             {request.setAttribute("notif", "Пользователь "+login+" успешно создан!");}
         }
-       
+        if ("/forum".equals(userPath)){
+            List<Articles> result=articlesManager.findForum();
+            request.setAttribute("article", result);
+        }
         
         request.getRequestDispatcher("/WEB-INF/views"+userPath+".jsp").forward(request, response);
     }

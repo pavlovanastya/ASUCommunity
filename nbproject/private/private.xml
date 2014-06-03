@@ -3,13 +3,15 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/mazafaka/Documents/NetBeansProjects/ASUCommunity/web/index.jsp</file>
-            <file>file:/C:/Users/mazafaka/Documents/NetBeansProjects/ASUCommunity/web/WEB-INF/jspf/footer.jspf</file>
-            <file>file:/C:/Users/mazafaka/Documents/NetBeansProjects/ASUCommunity/web/WEB-INF/jspf/header.jspf</file>
-            <file>file:/C:/Users/mazafaka/Documents/NetBeansProjects/ASUCommunity/web/WEB-INF/private/private_article.jsp</file>
-            <file>file:/C:/Users/mazafaka/Documents/NetBeansProjects/ASUCommunity/src/java/controller/private_controller.java</file>
-            <file>file:/C:/Users/mazafaka/Documents/NetBeansProjects/ASUCommunity/src/java/controller/web_controller.java</file>
-            <file>file:/C:/Users/mazafaka/Documents/NetBeansProjects/ASUCommunity/web/css/style.css</file>
+            <file>file:/C:/Users/mazafaka/Documents/NetBeansProjects/ASUCommunity/src/java/controller/search.java</file>
+            <file>file:/C:/Users/mazafaka/Documents/NetBeansProjects/ASUCommunity/src/java/entity/Projects.java</file>
+            <file>file:/C:/Users/mazafaka/Documents/NetBeansProjects/ASUCommunity/src/java/entity/Articles.java</file>
+            <file>file:/C:/Users/mazafaka/Documents/NetBeansProjects/ASUCommunity/web/WEB-INF/views/fnsearch.jsp</file>
+            <file>file:/C:/Users/mazafaka/Documents/NetBeansProjects/ASUCommunity/src/java/entity/Groupuser.java</file>
+            <file>file:/C:/Users/mazafaka/Documents/NetBeansProjects/ASUCommunity/src/java/entity/Categories.java</file>
+            <file>file:/C:/Users/mazafaka/Documents/NetBeansProjects/ASUCommunity/src/java/entity/Contacts.java</file>
+            <file>file:/C:/Users/mazafaka/Documents/NetBeansProjects/ASUCommunity/src/java/entity/Messages.java</file>
+            <file>file:/C:/Users/mazafaka/Documents/NetBeansProjects/ASUCommunity/src/java/session/ArticlesManager.java</file>
         </group>
     </open-files>
 </project-private>
